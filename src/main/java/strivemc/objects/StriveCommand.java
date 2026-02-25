@@ -2,11 +2,9 @@ package strivemc.objects;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import strivemc.StriveMC;
 import strivemc.utils.ChatUtil;
-
-import java.util.List;
 
 public abstract class StriveCommand implements CommandExecutor {
 
@@ -27,13 +25,13 @@ public abstract class StriveCommand implements CommandExecutor {
     {
         if (!(sender instanceof Player) && this.onlyPlayer)
         {
-            sender.sendMessage("Command is player-only!");
+            sender.sendMessage(ChatUtil.fixColor(StriveMC.settings.getString("Settings.cmd.only_player")));
             return true;
         }
         if (sender instanceof Player p)
             if (this.perm != null && !p.hasPermission(this.perm))
             {
-                p.sendMessage(ChatUtil.fixColor("TODO CONFIG NO PERM MSG"));
+                p.sendMessage(ChatUtil.fixColor(StriveMC.settings.getString("Settings.cmd.no_perm")));
                 return true;
             }
         return this.handler(sender, args);

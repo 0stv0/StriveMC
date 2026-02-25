@@ -19,7 +19,7 @@ public class ItemInteractEvent extends StriveEvent {
     private final Set<ItemFlag> flags;
     private final Map<Enchantment, Integer> enchants;
     private final Action action;
-    private boolean canceled;
+    private boolean cancelled;
 
     public ItemInteractEvent(
         Player player,
@@ -39,13 +39,13 @@ public class ItemInteractEvent extends StriveEvent {
         this.enchants = enchants;
         this.action   = action;
     }
-    public void setCanceled(boolean canceled)
+    public void setCancelled(boolean cancelled)
     {
-        this.canceled = canceled;
+        this.cancelled = cancelled;
     }
-    public boolean isCanceled()
+    public boolean isCancelled()
     {
-        return this.canceled;
+        return this.cancelled;
     }
     public Material getType()
     {

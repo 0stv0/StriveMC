@@ -60,6 +60,6 @@ public class EventsInit implements Listener {
         ItemInteractEvent event = new ItemInteractEvent(p, mat, title, im.getLore(), im.getItemFlags(), im.getEnchants(), e.getAction());
 
         Bukkit.getPluginManager().callEvent(event);
-        e.setCancelled(event.isCanceled());
+        e.setCancelled(event.isCancelled());
     }
 }

@@ -1,7 +1,8 @@
 name: StriveMC
 version: '1.0'
-main: strivemc.core.Main
+main: strivemc.StriveMC
 api-version: '1.21'
 author: stevku
 website: https://www.strivemc.pl/
 description: Minecraft Lib/Framework for creating high quality plugins.
+load: STARTUP
