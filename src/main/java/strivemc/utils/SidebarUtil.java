@@ -16,7 +16,7 @@ public class SidebarUtil {
         o.setDisplayName(ChatUtil.fixColor(title));
 
         for (int i = 0; i < lines.length; i++)
-            o.getScore(lines[i]).setScore(lines.length - 1 - i);
+            o.getScore(ChatUtil.fixColor(lines[i])).setScore(lines.length - 1 - i);
 
         p.setScoreboard(sb);
     }

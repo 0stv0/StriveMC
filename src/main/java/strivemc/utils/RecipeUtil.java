@@ -20,7 +20,6 @@ public class RecipeUtil {
         ShapedRecipe recipe = new ShapedRecipe(key, result);
         char[] mask         = new char[]{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
         ingredients.forEach((Integer slot, Material type) -> {
-            recipe.setIngredient(CHARS[slot], type);
             mask[slot] = CHARS[slot];
         });
         recipe.shape(
@@ -28,6 +27,9 @@ public class RecipeUtil {
             new String(mask, 3, 3),
             new String(mask, 6, 3)
         );
+        ingredients.forEach((Integer slot, Material type) -> {
+            recipe.setIngredient(CHARS[slot], type);
+        });
         plugin.getServer().addRecipe(recipe);
     }
 }

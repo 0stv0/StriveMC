@@ -29,9 +29,9 @@ public abstract class StriveCommand implements CommandExecutor {
             return true;
         }
         if (sender instanceof Player p)
-            if (this.perm != null && !p.hasPermission(this.perm))
+            if (this.perm != null && !this.perm.isEmpty() && !p.hasPermission(this.perm))
             {
-                p.sendMessage(ChatUtil.fixColor(StriveMC.settings.getString("Settings.cmd.no_perm")));
+                p.sendMessage(ChatUtil.fixColor(StriveMC.settings.getString("Settings.cmd.no_perm").replace("{PERM}", this.perm)));
                 return true;
             }
         return this.handler(sender, args);

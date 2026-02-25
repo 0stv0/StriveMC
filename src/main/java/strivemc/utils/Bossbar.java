@@ -10,7 +10,7 @@ public class Bossbar {
 
     public static void send(Plugin plugin, Player player, String title, BarColor color, BarStyle style, double progress, int seconds)
     {
-        BossBar bar = plugin.getServer().createBossBar(title, color, style);
+        BossBar bar = plugin.getServer().createBossBar(ChatUtil.fixColor(title), color, style);
         bar.setProgress(progress);
         bar.addPlayer(player);
         Async.fireForget(plugin, () -> {

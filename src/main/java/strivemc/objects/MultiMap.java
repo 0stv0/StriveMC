@@ -35,4 +35,8 @@ public class MultiMap<T, K> {
     {
         return this.items.get(key);
     }
+    public void clear()
+    {
+        this.items.clear();
+    }
 }
