@@ -3,6 +3,7 @@ package strivemc.objects;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class Manager<T> {
 
@@ -10,7 +11,7 @@ public class Manager<T> {
     private final Function<T, ?> index;
     private final Function<?, List<T>> loader;
 
-    public Manager(Function<T, ?> index, Function<?, List<T>> loader)
+    public Manager(Function<T, ?> index, Supplier<List<T>> loader)
     {
         this.items  = new CopyOnWriteArrayList<>();
         this.index  = index;
