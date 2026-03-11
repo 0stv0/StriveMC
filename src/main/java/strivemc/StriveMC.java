@@ -6,9 +6,11 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import strivemc.database.SQLite;
 import strivemc.events.EventsInit;
+import strivemc.listeners.StriveUserListener;
 import strivemc.objects.Manager;
 import strivemc.objects.StriveConfig;
 import strivemc.objects.StriveUser;
+import strivemc.tasks.SaveTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public final class StriveMC extends JavaPlugin {
         this.loadConfigs();
         this.loadDatabase();
         this.loadListeners();
+        new SaveTask(this);
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "StriveMC enabled.");
     }
     @Override
@@ -64,5 +67,6 @@ public final class StriveMC extends JavaPlugin {
     {
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new EventsInit(), this);
+        pm.registerEvents(new StriveUserListener(), this);
     }
 }

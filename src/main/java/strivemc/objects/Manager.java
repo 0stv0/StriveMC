@@ -9,7 +9,7 @@ public class Manager<T> {
 
     private final List<T> items;
     private final Function<T, ?> index;
-    private final Function<?, List<T>> loader;
+    private final Supplier<List<T>> loader;
 
     public Manager(Function<T, ?> index, Supplier<List<T>> loader)
     {
@@ -37,7 +37,7 @@ public class Manager<T> {
     }
     public Manager<T> load()
     {
-        List<T> loaded = this.loader.apply(null);
+        List<T> loaded = this.loader.get();
         if (loaded != null)
         {
             this.items.clear();
